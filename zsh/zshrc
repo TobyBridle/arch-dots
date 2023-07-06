@@ -4,8 +4,8 @@ autoload -U +X compinit && compinit
 export PATH=/var/lib/flatpak/exports/bin/:/$HOME/.local/bin/:$PATH
 
 # History
-HISTSIZE=10,000
-SAVEHIST=10,000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=$HOME/.cache/zsh/history
 
 # Env vars
@@ -43,3 +43,5 @@ eval "$(zoxide init zsh)"
 setopt autocd
 # CTRL+Backspace
 bindkey ^H backward-delete-word
+bindkey ^R history-incremental-search-backward
+bindkey '^[[A' up-line-or-search
