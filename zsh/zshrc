@@ -1,0 +1,45 @@
+autoload -U +X compinit && compinit
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/var/lib/flatpak/exports/bin/:/$HOME/.local/bin/:$PATH
+
+# History
+HISTSIZE=10,000
+SAVEHIST=10,000
+HISTFILE=$HOME/.cache/zsh/history
+
+# Env vars
+export EDITOR=nvim
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="catppuccin-mocha"
+
+# Plugins
+source ~/dotfiles/zsh/themes/catppuccin-highlight/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+autoload -Uz transfer
+source ~/dotfiles/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+source ~/dotfiles/zsh/plugins/zsh-exa-alias.zsh
+source ~/dotfiles/zsh/plugins/git.plugin.zsh
+source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+fpath=(
+    /usr/share/zsh/functions
+  "${fpath[@]}"
+)
+
+# User configuration
+alias cat=bat
+
+source /home/tobybridle/.config/broot/launcher/bash/br
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+# Easier CD (i.e. cd dots -> dots)
+setopt autocd
+# CTRL+Backspace
+bindkey ^H backward-delete-word

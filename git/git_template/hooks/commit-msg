@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+import sys
+
+def emoji_line(line_pieces: list, emoji: str) -> str:
+    # If there is already an emoji in the same position, don't add another one
+    # The emoji would be in the second part of the split
+    if len(line_pieces) > 1 and line_pieces[1].strip().startswith(type_map.get(type)):
+        return f'{line_pieces[0]}: {" ".join(line_pieces[1:]).strip()}'
+    return f'{line_pieces[0]}: {emoji} {" ".join(line_pieces[1:]).strip()}'
+
+commit_message_path = sys.argv[1]
+new_commit_message: str = ""
+
+type_map = {
+    "feat": "🎉",
+    "fix": "🐛",
+    "docs": "📝",
+    "style": "🎨",
+    "refactor": "♻️ ",
+    "perf": "⚡️",
+    "test": "🚨",
+    "chore": "🔧",
+    "revert": "⏪",
+    "build": "👷",
+    "ci": "👷",
+    "wip": "🚧",
+    "release": "🏁",
+    "workflow": "📦",
+    "deps": "⬆️",
+}
+
+def get_valid_types() -> str:
+    keys = list(type_map.keys())
+    # Example
+    #\t- feat
+    #\t- fix
+    # ...
+    return "\t- " + "\n\t- ".join(keys)
+
+with open(commit_message_path, "r") as commit_message_file:
+    lines = commit_message_file.readlines()
+
+    ########################################
+    #       Check if commit is empty       #
+    ########################################
+    if len(lines) == 0:
+        print("Commit message is empty")
+        sys.exit(1)
+    
+    line_pieces = lines[0].split(":")
+
+    ########################################
+    #       Check if commit has a type     #
+    ########################################
+    if len(line_pieces) == 1 or line_pieces[0].strip() == "":
+        print("\x1b[31;1mCommit message does not have a type\x1b[0;0m")
+        print("USAGE: \x1b[;1m<type>(<scope>): <subject>\x1b[0m")
+        print("Examples:\n\t\x1b[;1mfeat\x1b[0m: add new feature")
+        print("\t\x1b[;1mfeat(test)\x1b[0m: add new testing features")
+        # Use type_map.keys() to get all available types
+        print("\n\x1b[33;1mAvailable types:\x1b[0;0m")
+        print(get_valid_types())
+
+        sys.exit(1)
+    ########################################
+    #   Check if commit subject is valid   #
+    ########################################
+    elif line_pieces[1].strip() == "":
+        print("\x1b[31;1mCommit message does not have a subject\x1b[0;0m")
+        print("USAGE: \x1b[;1m<type>(<scope>): <subject>\x1b[0m")
+        print("Examples:\n\tfeat: \x1b[;1madd new feature\x1b[0m")
+        print("\tfeat(test): \x1b[;1madd new testing features\x1b[0m")
+        sys.exit(1)
+
+    ########################################
+    #   Check if commit type is valid      #
+    ########################################
+    type = line_pieces[0].lower().strip()
+    scope = type.split("(")[1].split(")")[0] if "(" in type and ")" in type else None
+    type = type.split("(")[0] if scope else type
+
+    if type not in type_map.keys():
+        print(f"\x1b[31;1mInvalid commit type: \x1b[31;3m{type}\x1b[0;0m")
+        print(get_valid_types())
+        sys.exit(1)
+
+    ########################################
+    #     Add emoji to commit message      #
+    ########################################
+    new_commit_messages = emoji_line(line_pieces, type_map[type]) + "\n" + "\n".join([str(l.strip()) for l in lines[1::]])
+
+with open(commit_message_path, "w") as commit_message_file:
+    commit_message_file.write(new_commit_messages)
+
+sys.exit(0)

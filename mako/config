@@ -1,0 +1,42 @@
+sort=+time
+layer=overlay
+default-timeout=5000
+max-visible=50
+max-history=50
+on-button-left=invoke-default-action
+
+anchor=top-right
+width=350
+height=1000
+padding=12
+outer-margin=50,10,0
+max-icon-size=128
+format=<span foreground='#c49ec4' size='14000' weight='bold'>%s</span>\n%b
+
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+
+[urgency=high]
+border-color=#fab387
+
+default-timeout=10000
+# # background-color=#00000066
+# background-color=#16161680
+# # border-color=#ffffff
+# # border-color=#3ddbd9
+# border-color=#0f0f0f
+# border-radius=14
+# border-size=4
+# 
+# font=LigaSF Mono Nerd Font Italic 11
+# text-alignment=center
+# 
+# [urgency=high]
+# text-color=#C5467E
+# 
+# [urgency=critical]
+# text-color=#DF5EB1
+# # Colors
+# 

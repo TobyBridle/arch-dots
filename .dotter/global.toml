@@ -1,0 +1,105 @@
+[helpers]
+eq_string = ".dotter/helpers/strings.rhai"
+# Supported Wallpaper Daemons:
+# - swww
+# - mpvpaper
+
+# Supported Notification Daemons:
+# - dunst
+# - mako
+
+[git]
+[git.files]
+"git/gitconfig" = "~/.gitconfig"
+"git/git_template" = { target = "/usr/share/git-core/templates", type = "symbolic" }
+
+[zsh]
+[zsh.files]
+"zsh/zshrc" = "~/.zshrc"
+"zsh/broot" = "~/.config/broot/"
+"zsh/themes" = "~/.config/zsh/themes"
+# "zsh/plugins" = "~/.config/zsh/plugins"
+
+[starship]
+[starship.files]
+"starship/starship.toml" = "~/.config/starship.toml"
+
+[zellij]
+[zellij.files]
+"zellij/" = "~/.config/zellij/"
+
+[hyprland]
+[hyprland.files]
+"hyprland/" = "~/.config/hypr/"
+
+[swww]
+[swww.files]
+"wallpapers/gifs/" = "~/.config/wallpapers"
+"wallpapers/images/" = "~/.config/wallpapers"
+[swww.variables]
+wallpaper_manager = "swww"
+
+[hyprpaper]
+[hyprpaper.files]
+"hyprland/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
+# swww can just be used instead.
+# "wallpapers/images/" = "~/.config/wallpapers"
+[hyprpaper.variables]
+wallpaper_manager = "hyprpaper"
+
+[mpvpaper]
+[mpvpaper.files]
+"wallpapers/videos/" = "~/.config/wallpapers"
+[mpvpaper.variables]
+wallpaper_manager = "mpvpaper"
+
+[dunst]
+[dunst.files]
+"dunst/" = "~/.config/dunst/"
+[dunst.variables]
+noti_manager = "dunst"
+
+[mako]
+[mako.files]
+"mako/" = "~/.config/mako/"
+[mako.variables]
+noti_manager = "mako"
+
+[imwheel]
+[imwheel.files]
+"imwheel/imwheelrc" = "~/.imwheelrc"
+
+# [copyq]
+# [copyq.files]
+# "copyq/" = "~/copyq/"
+
+[scripts]
+[scripts.files]
+"scripts/" = "~/.config/scripts"
+
+# Applications
+[vencord]
+[vencord.files]
+"vencord" = { target = "~/.config/Vencord/", type = "symbolic" }
+
+[wezterm]
+[wezterm.files]
+"wezterm/" = "~/.config/wezterm"
+
+[nvim]
+[nvim.files]
+"nvim/" = "~/.config/nvim/"
+
+[gh]
+[gh.files]
+"gh/" = "~/.config/gh"
+"gh-dash/" = "~/.config/gh-dash"
+
+[rofi]
+[rofi.files]
+"rofi/" = "~/.config/rofi"
+
+# Fonts
+[fonts]
+[fonts.files]
+"fonts/config" = "~/.config/fontconfig/conf.d/"

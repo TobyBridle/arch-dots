@@ -1,0 +1,100 @@
+
+* {
+    // pink:               @base07;
+    // cyan:               #89b4fa;
+
+    // accent-color:       @base06;
+    // urgent-color:       @base0A;
+
+    margin:             0;
+    padding:            0;
+
+    background-color: #1E1E2E;
+    background:  #313244;
+    gray:            #45475A;
+    foreground:      #CDD6F4;
+    text-color:      #CDD6F4;
+    blue:            #89B4FA;
+    red:             #F38BA8;
+    green:           #A6E3A1;
+    yellow:          #F9E2AF;
+    pink:            #F5C2E7;
+    cyan:            #89DCEB;
+    orange:          #FAB387;
+    purple:          #CBA6F7;
+
+    accent-color: #CDD6F4;
+  }
+
+window {
+    location:           center;
+    anchor:             center;
+    fullscreen:         false;
+
+    y-offset:           -100px;
+    enabled:            true;
+    background-color:   @background;
+    cursor:             "default";
+}
+
+inputbar {
+    enabled:            true;
+    background-color:   @background-color;
+    padding:            10px;
+    children:           ["entry"];
+    border: 0 0 1px 0 solid;
+    border-color: @background;
+    
+}
+
+entry {
+    enabled:            true;
+    padding:            0.75em 1.25em;
+    cursor:             text;
+}
+
+listview {
+    enabled:            true;
+    columns:            1;
+    lines:              6;
+    cycle:              true;
+    dynamic:            true;
+    scrollbar:          false;
+    layout:             vertical;
+    reverse:            false;
+    fixed-height:       true;
+    fixed-columns:      true;
+    margin:             0.5em 0 0.75em;
+    cursor:             "default";
+}
+
+prompt {
+    text-color:         @accent-color;
+}
+
+textbox {
+    padding:            0.5em 1.5em;
+    background-color:   @background-color;
+}
+
+element {
+    enabled:            true;
+    margin:             0 0.75em;
+    padding:            0.5em 1em;
+    cursor:             pointer;
+    orientation:        horizontal;
+}
+
+element-text {
+    highlight:          @pink;
+    cursor:             inherit;
+    vertical-align:     0.5;
+    margin:             0px 10px;
+    font:               "Liga SFMono Nerd Font 14";
+}
+
+element-text selected {
+    text-color:           @cyan;
+}
+
+element-icon { size: 36px; }

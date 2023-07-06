@@ -1,1 +1,5 @@
 .dotter/local.toml
+.dotter/cache.toml
+.dotter/cache
+# Use the script within the scripts folder to convert all videos to GIF
+wallpapers/gifs

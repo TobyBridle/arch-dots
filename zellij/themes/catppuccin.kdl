@@ -1,0 +1,15 @@
+themes {
+    catppuccin-mocha {
+        fg 205 214 244
+        bg 88 91 112
+        black 24 24 37
+        red 243 139 168
+        green 166 227 161
+        yellow 249 226 175
+        blue 137 180 250
+        magenta 245 194 231
+        cyan 137 220 235
+        white 205 214 244
+        orange 250 179 135
+    }
+}

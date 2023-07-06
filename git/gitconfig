@@ -1,0 +1,9 @@
+[user]
+	email = foreignspaghettibolognese@gmail.com
+	name = Toby Bridle
+[credential]
+	helper = store
+[safe]
+	directory = /opt/flutter
+[init]
+	defaultBranch = main
