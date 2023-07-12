@@ -34,9 +34,9 @@ get_name() {
 }
 
 start_recording() {
+    test -f "$tmp_video_file" && rm $tmp_video_file
     audio_choice=$(printf "1. Audio\n2. No Audio" | launcher "Choose audio: ")
     [ "$audio_choice" = "2. No Audio" ] && audio_device=""
-    test -f "$tmp_video_file" && rm $tmp_video_file
 
     notify-send "Recording started" -t 100 && sleep 0.3
 
@@ -106,7 +106,7 @@ convert_recording() {
             fi
             notify-send "Recording saved as $name.mp4 in ~/videos/screen-recordings in $1 format"
             ;;
-        "Upload to oshi.at and copy to clipboard)")
+        "Upload to oshi.at and copy to clipboard")
             notify-send "Converting to 1080p..." -t 1000
             ffmpeg -i "$tmp_video_file" -vf scale=1920:1080 "/tmp/$name.mp4"
             notify-send "Uploading to oshi.at..." -t 1000
@@ -123,26 +123,28 @@ convert_recording() {
             notify-send "Gif saved as $name.gif in ~/videos/screen-recordings in $1 format"
             ;;
         "Discord share (choose channel and send the video under 25mb there)")
+            video_file="$tmp_video_file"
             if [ "$(du -m "$tmp_video_file" | cut -f1)" -gt 25 ]; then
-                compress_to_25mb "$tmp_video_file"
+                video_file="/tmp/recording-compressed.mp4"
+                compress_to_25mb "/tmp/recording-compressed.mp4"
                 wait
             fi
-            base="https://discord.com/api/v10"
-            server_choice=$(curl -s -H "Authorization: $token" "${base}/users/@me/guilds" | tr "{|}" "\n" |
-                sed -nE "s@\"id\": \"([0-9]*)\", \"name\": \"([^\"]*)\".*@\1\t\2@p" | nth "\$2")
-
+            base="https://discord.com/api/v9"
+            server_choice=$(curl -s -H "Authorization: $token" "${base}/users/@me/guilds" | jq '.[] | "\(.id) \(.name)"' | awk -F'"' '{print $2}' | awk -F " " '{$1=""; print NR, $0 }' | launcher)
             [ -z "$server_choice" ] && exit 1
-            server_name=$(printf "%s" "$server_choice" | cut -f2)
-            server_id=$(printf "%s" "$server_choice" | cut -f1)
+
+            notify-send "Choices" "$server_choice"
+            server_name=$(printf "%s" "$server_choice" | cut -d'"' -f 2 | cut -d " " -f1)
+            server_id=$(printf "%s" "$server_choice" | cut -d'"' -f 2 | cut -d " " -f2-)
 
             channel=$(curl -s -H "Authorization: $token" "${base}/guilds/${server_id}/channels" | tr "{|}" "\n" |
-                sed -nE "s@\"id\": \"([0-9]*)\".*\"type\": 0,.*\"name\": \"([^\"]*)\",.*\"position\": ([0-9]*).*@\3) \2\t\1@p" | sort -h | cut -f2 -d' ')
+                sed -nE "s@\"id\":\"([0-9]*)\".*\"type\":0,.*\"name\":\"([^\"]*)\",.*\"position\":([0-9]*).*@\3) \2\t\1@p" | sort -h | cut -f2 -d' ')
             channel_choice=$(printf "%s" "$channel" | tr '-' ' ' | nth "\$1")
             [ -z "$channel_choice" ] && exit 1
             channel_name=$(printf "%s" "$channel_choice" | cut -f1)
             channel_id=$(printf "%s" "$channel_choice" | cut -f2)
 
-            curl -H "Authorization: $token" -H "Accept: application/json" -H "Content-Type: multipart/form-data" -X POST -F "file=@/tmp/recording.mp4" "${base}/channels/$channel_id/messages"
+            curl -H "Authorization: $token" -H "Accept: application/json" -H "Content-Type: multipart/form-data" -X POST -F "file=@$video_file" "${base}/channels/$channel_id/messages"
             notify-send "$server_name ⚫$channel_name" "Video sent" -t 1000
             ;;
         *) notify-send "No format selected" ;;
