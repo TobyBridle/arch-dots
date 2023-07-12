@@ -99,7 +99,7 @@
             "enabled": false
         },
         "EmoteCloner": {
-            "enabled": false
+            "enabled": true
         },
         "Experiments": {
             "enabled": false
@@ -175,7 +175,10 @@
             "enabled": false
         },
         "MessageLogger": {
-            "enabled": true
+            "enabled": true,
+            "deleteStyle": "text",
+            "ignoreBots": false,
+            "ignoreSelf": false
         },
         "MessageTags": {
             "enabled": false
@@ -389,12 +392,24 @@
             "enabled": false
         },
         "GreetStickerPicker": {
-            "enabled": false
+            "enabled": true
         },
         "WhoReacted": {
             "enabled": false
         },
         "Wikisearch": {
+            "enabled": false
+        },
+        "BiggerStreamPreview": {
+            "enabled": true
+        },
+        "MutualGroupDMs": {
+            "enabled": false
+        },
+        "OpenInApp": {
+            "enabled": true
+        },
+        "UnsuppressEmbeds": {
             "enabled": false
         }
     },
@@ -408,6 +423,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1687201401282
+        "settingsSyncVersion": 1689202221504
     }
 }
