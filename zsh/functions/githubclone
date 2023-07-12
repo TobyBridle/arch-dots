@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function ghcl {
+    case $1 in
+        "")
+            gum style --background="#ee5396" --foreground="#262626" --bold "No Repository Provided"
+            return
+            ;;
+        */*)
+            BASE="https://github.com/"
+            REPO=$(echo $1 | cut -d' ' -f1)
+            ARGS=$(echo $@ | cut -d' ' -f2- | xargs)
+            gum style --background="#ee5396" --foreground="#262626" --bold --padding=1 "Cloning Repository $BASE$REPO" "With Args: $ARGS"
+            git clone $BASE$REPO $ARGS
+            ;;
+        *)
+            gum style --background="#ee5396" --foreground="#262626" --bold "Invalid Repository. Cannot clone orgs/users."
+            return
+            ;;
+    esac
+}
