@@ -11,15 +11,20 @@ height=1000
 padding=12
 outer-margin=50,10,0
 max-icon-size=128
-format=<span foreground='#c49ec4' size='14000' weight='bold'>%s</span>\n%b
+format=<span foreground='#{{colors16.base0E}}' size='14000' weight='bold'>%s</span>\n%b
 
-background-color=#1e1e2e
-text-color=#cdd6f4
-border-color=#89b4fa
-progress-color=over #313244
+background-color=#{{colors16.base00}}
+text-color=#{{colors16.base05}}
+{{ #if (eq_string theme-name "catppuccin-mocha") }}
+border-color=#{{colors16.base0D}}
+{{ /if }}
+{{ #if (eq_string theme-name "oxocarbon") }}
+border-color=#{{colors16.base0C}}
+{{ /if }}
+progress-color=over #{{colors16.base02}}
 
 [urgency=high]
-border-color=#fab387
+border-color=#{{colors16.base0A}}
 
 default-timeout=10000
 # # background-color=#00000066

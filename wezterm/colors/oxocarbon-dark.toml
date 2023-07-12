@@ -30,8 +30,8 @@ brights = [
 background = "#262626"
 
 [colors.tab_bar.active_tab]
-bg_color = '#161616'
-fg_color = '#ffffff'
+bg_color = '#ff7eb6'
+fg_color = '#161616'
 intensity = 'Normal'
 italic = false
 strikethrough = false

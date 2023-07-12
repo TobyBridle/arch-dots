@@ -1,0 +1,47 @@
+theme:
+  lightTheme: false 
+  {{ #if ( eq_string theme-name "catppuccin-mocha") }}
+  activeBorderColor:
+    - "#a6e3a1" # Green
+    - bold
+  inactiveBorderColor:
+    - "#cdd6f4" # Text
+  optionsTextColor:
+    - "#89b4fa" # Blue
+  cherryPickedCommitBgColor:
+    - "#94e2d5" # Teal
+  cherryPickedCommitFgColor:
+    - "#89b4fa" # Blue
+  {{ /if }}
+  selectedLineBgColor:
+    {{ #if (eq_string theme-name "catppuccin-mocha")}}
+    - "#313244" # Surface0
+    {{ / if }}
+    {{ #if (eq_string theme-name "oxocarbon")}}
+    - "#263c42" # Surface0
+    {{ / if }}
+  selectedRangeBgColor:
+    {{ #if (eq_string theme-name "catppuccin-mocha") }}
+    - "#313244" # Surface0
+    {{ /if }}
+    {{ #if (eq_string theme-name "oxocarbon")}}
+      - "#263c42"
+    {{ / if }}
+  unstagedChangesColor:
+    - red       # Red
+    - bold
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+
+keybinding:
+  universal:
+    gotoTop: "g"
+    gotoBottom: "G"
+  commits:
+    viewResetOptions: "m"
+  stash:
+    popStash: "o"
+

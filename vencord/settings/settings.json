@@ -3,9 +3,7 @@
     "autoUpdate": false,
     "autoUpdateNotification": true,
     "useQuickCss": true,
-    "themeLinks": [
-        "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css"
-    ],
+    "themeLinks": [],
     "enableReactDevtools": false,
     "frameless": false,
     "transparent": false,
