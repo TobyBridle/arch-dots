@@ -85,7 +85,7 @@ html {
   --chat-border: #262626;
   --chat-input-container-background: #161616;
   --background-modifier-hover: rgba(205, 214, 244, 0.15);
-  --background-modifier-selected: #be95ff;
+  --background-modifier-selected: rgba(190,149,255, 0.8);
   --background-modifier-accent: rgba(48, 177, 255, 0.75);
   --background-modifier-active: rgba(205, 214, 244, 0.17);
   --info-positive-background: rgba(166, 227, 161, 0.15);
@@ -2213,4 +2213,9 @@ div[class*=quickswitcher] > input,
 div[id^="uid_"][role=listbox][class^="content"] {
   --status-danger: #be95ff;
   background-color: var(--background-primary) !important;
+}
+#channels > ul > li[class*="selected"] {
+  --interactive-active: #292929;
+  --channel-icon: #292929;
+  --interactive-normal: #292929;
 }
