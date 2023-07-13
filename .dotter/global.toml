@@ -1,36 +1,20 @@
 [helpers]
 eq_string = ".dotter/helpers/strings.rhai"
-# Supported Colorschemes:
-# - Catppuccin (Mocha)
-# - Oxocarbon
 
-# Supported Wallpaper Daemons:
-# - swww
-# - mpvpaper
-
-# Supported Notification Daemons:
-# - dunst
-# - mako
-
-#   _____ ____  _      ____  _____   _____  _____ _    _ ______ __  __ ______ 
-#   / ____/ __ \| |    / __ \|  __ \ / ____|/ ____| |  | |  ____|  \/  |  ____|
-#  | |   | |  | | |   | |  | | |__) | (___ | |    | |__| | |__  | \  / | |__   
-#  | |   | |  | | |   | |  | |  _  / \___ \| |    |  __  |  __| | |\/| |  __|  
-#  | |___| |__| | |___| |__| | | \ \ ____) | |____| |  | | |____| |  | | |____ 
-#   \_____\____/|______\____/|_|  \_\_____/ \_____|_|  |_|______|_|  |_|______|
+[global]
+[global.variables]
+[global.variables.theming]
+colorschemes = ["oxocarbon", "catppuccin"]
 
 [colorscheme]
 depends = ["catppuccin"]
 [colorscheme.variables]
-# Should Wezterm follow the above Colorscheme
-# or use the one set in it's own config
-use-wezterm-colorscheme = "true"
+use-wezterm-colorscheme = "false"
 
 [oxocarbon]
 [oxocarbon.variables]
-theme-name     = "oxocarbon"
+theme-name = "oxocarbon"
 rofi-wallpaper = "~/dotfiles/wallpapers/images/cat_nobara.jpg"
-
 [oxocarbon.variables.colors16]
 base00 = "161616"
 base01 = "262626"
@@ -48,58 +32,48 @@ base0C = "ff7eb6"
 base0D = "42be65"
 base0E = "be95ff"
 base0F = "82cfff"
-
 [oxocarbon.files]
-# Only load the custom theme if vencord is being used in local.toml
-"vencord/settings/oxocarbon-theme.css" = { target = "~/.config/Vencord/settings/quickCss.css", type = "symbolic", if = "(eq dotter.packages.vencord true)" }
+[oxocarbon.files."vencord/settings/oxocarbon-theme.css"]
+target = "~/.config/Vencord/settings/quickCss.css"
+type = "symbolic"
+if = "(eq dotter.packages.vencord true)"
 
 [catppuccin]
 [catppuccin.variables]
-theme-name="catppuccin-mocha"
-rofi-wallpaper="~/dotfiles/wallpapers/images/night.jpg"
-
+theme-name = "catppuccin-mocha"
+rofi-wallpaper = "~/dotfiles/wallpapers/images/night.jpg"
 [catppuccin.variables.colors16]
-base00 = "1e1e2e" # base
-base01 = "181825" # mantle
-base02 = "313244" # surface0
-base03 = "45475a" # surface1
-base04 = "585b70" # surface2
-base05 = "cdd6f4" # text
-base06 = "f5e0dc" # rosewater
-base07 = "b4befe" # lavender
-base08 = "f38ba8" # red
-base09 = "fab387" # peach
-base0A = "f9e2af" # yellow
-base0B = "a6e3a1" # green
-base0C = "94e2d5" # teal
-base0D = "89b4fa" # blue
-base0E = "cba6f7" # mauve
-base0F = "f2cdcd" # flamingo
-
+base00 = "1e1e2e"
+base01 = "181825"
+base02 = "313244"
+base03 = "45475a"
+base04 = "585b70"
+base05 = "cdd6f4"
+base06 = "f5e0dc"
+base07 = "b4befe"
+base08 = "f38ba8"
+base09 = "fab387"
+base0A = "f9e2af"
+base0B = "a6e3a1"
+base0C = "94e2d5"
+base0D = "89b4fa"
+base0E = "cba6f7"
+base0F = "f2cdcd"
 [catppuccin.files]
-# Only load the custom theme if vencord is being used in local.toml
-"vencord/settings/catppuccin-theme.css" = { target = "~/.config/Vencord/settings/quickCss.css", type = "symbolic", if = "(eq dotter.packages.vencord true)" }
-
-# -----------------------------------------------------------------------------------------
-
-#  _______ ______ _____  __  __ _____ _   _          _      
-# |__   __|  ____|  __ \|  \/  |_   _| \ | |   /\   | |     
-#    | |  | |__  | |__) | \  / | | | |  \| |  /  \  | |     
-#    | |  |  __| |  _  /| |\/| | | | | . ` | / /\ \ | |     
-#    | |  | |____| | \ \| |  | |_| |_| |\  |/ ____ \| |____ 
-#    |_|  |______|_|  \_\_|  |_|_____|_| \_/_/    \_\______|
+[catppuccin.files."vencord/settings/catppuccin-theme.css"]
+target = "~/.config/Vencord/settings/quickCss.css"
+type = "symbolic"
+if = "(eq dotter.packages.vencord true)"
 
 [git]
 [git.files]
 "git/gitconfig" = "~/.gitconfig"
-# "git/git_template/hooks/commit-msg" = "/usr/share/git-core/templates/hooks/commit-msg"
 
 [zsh]
 [zsh.files]
 "zsh/zshrc" = "~/.zshrc"
 "zsh/broot" = "~/.config/broot/"
 "zsh/themes" = "~/.config/zsh/themes"
-# "zsh/plugins" = "~/.config/zsh/plugins"
 
 [starship]
 [starship.files]
@@ -117,21 +91,12 @@ base0F = "f2cdcd" # flamingo
 [lazygit]
 depends = ["colorscheme"]
 [lazygit.files]
-"lazygit" = "~/.config/lazygit"
+lazygit = "~/.config/lazygit"
 
 [nvim]
 depends = ["colorscheme"]
 [nvim.files]
 "nvim/" = "~/.config/nvim/"
-
-# -----------------------------------------------------------------------------------------
-
-#  __          __ __     ___               _   _ _____  
-#  \ \        / /\\ \   / / |        /\   | \ | |  __ \ 
-#   \ \  /\  / /  \\ \_/ /| |       /  \  |  \| | |  | |
-#    \ \/  \/ / /\ \\   / | |      / /\ \ | . ` | |  | |
-#     \  /\  / ____ \| |  | |____ / ____ \| |\  | |__| |
-#      \/  \/_/    \_\_|  |______/_/    \_\_| \_|_____/ 
 
 [hyprland]
 [hyprland.files]
@@ -147,8 +112,6 @@ wallpaper_manager = "swww"
 [hyprpaper]
 [hyprpaper.files]
 "hyprland/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
-# swww can just be used instead.
-# "wallpapers/images/" = "~/.config/wallpapers"
 [hyprpaper.variables]
 wallpaper_manager = "hyprpaper"
 
@@ -165,15 +128,6 @@ depends = ["colorscheme"]
 [mako.variables]
 noti_manager = "mako"
 
-# -----------------------------------------------------------------------------------------
-
-#  __  __ _____  _____  _____ 
-# |  \/  |_   _|/ ____|/ ____|
-# | \  / | | | | (___ | |     
-# | |\/| | | |  \___ \| |     
-# | |  | |_| |_ ____) | |____ 
-# |_|  |_|_____|_____/ \_____|
-
 [dunst]
 [dunst.files]
 "dunst/" = "~/.config/dunst/"
@@ -184,26 +138,19 @@ noti_manager = "dunst"
 [imwheel.files]
 "imwheel/imwheelrc" = "~/.imwheelrc"
 
-# [copyq]
-# [copyq.files]
-# "copyq/" = "~/copyq/"
-
 [scripts]
+depends = ["global"]
 [scripts.files]
 "scripts/" = "~/.config/scripts"
-
-# -----------------------------------------------------------------------------------------
-
-#            _____  _____  _      _____ _____       _______ _____ ____  _   _  _____ 
-#      /\   |  __ \|  __ \| |    |_   _/ ____|   /\|__   __|_   _/ __ \| \ | |/ ____|
-#     /  \  | |__) | |__) | |      | || |       /  \  | |    | || |  | |  \| | (___  
-#    / /\ \ |  ___/|  ___/| |      | || |      / /\ \ | |    | || |  | | . ` |\___ \ 
-#   / ____ \| |    | |    | |____ _| || |____ / ____ \| |   _| || |__| | |\  |____) |
-#  /_/    \_\_|    |_|    |______|_____\_____/_/    \_\_|  |_____\____/|_| \_|_____/ 
+[scripts.files."scripts/colorscheme_switcher.sh"]
+target = "~/.config/scripts/colorscheme_switcher.sh"
+type = "template"
 
 [vencord]
 [vencord.files]
-"vencord" = { target = "~/.config/Vencord/", type = "symbolic" }
+[vencord.files.vencord]
+target = "~/.config/Vencord/"
+type = "symbolic"
 
 [wezterm]
 depends = ["colorscheme"]
@@ -215,7 +162,6 @@ depends = ["colorscheme"]
 [rofi.files]
 "rofi/" = "~/.config/rofi"
 
-# Fonts
 [fonts]
 [fonts.files]
 "fonts/config" = "~/.config/fontconfig/conf.d/"
