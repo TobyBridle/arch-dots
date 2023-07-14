@@ -3,3 +3,6 @@
 .dotter/cache
 # Use the script within the scripts folder to convert all videos to GIF
 wallpapers/gifs
+
+# Learned from mistake....
+gh/hosts.yaml
