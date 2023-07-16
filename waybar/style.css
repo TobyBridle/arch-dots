@@ -1,0 +1,79 @@
+/*
+Revdep config
+*/
+
+{{ #if (eq_string theme-name "oxocarbon") }}
+@define-color background #{{colors16.base0A}};
+@define-color foreground #{{colors16.base00}};
+@define-color icon_color #{{colors16.base00}};
+@define-color icon_hover #{{colors16.base03}};
+@define-color black      #{{colors16.base00}};
+@define-color white      #{{colors16.base05}};
+@define-color pink       #{{colors16.base0C}};
+@define-color shadow     rgba(10, 10, 10, 0.1);
+{{ /if }}
+{{ #if (eq_string theme-name "catppuccin-mocha") }}
+@define-color background #{{colors16.base00}};
+@define-color foreground #{{colors16.base0E}};
+@define-color icon_color #{{colors16.base08}};
+@define-color icon_hover #{{colors16.base03}};
+@define-color black      #{{colors16.base01}};
+@define-color white      #{{colors16.base05}};
+@define-color pink       #{{colors16.base08}};
+@define-color shadow     rgba(242, 205, 205, 0.04);
+{{ /if }}
+
+* {
+    font-family: "JetBrains Mono Nerd Font","FontAwesome";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar{
+    border-top: 10px;
+    border: transparent;
+    background: @background;
+    color: @foreground;
+}
+
+#custom-home{
+    /* color: #6a9fb5; */
+    margin: 0px 12px 0px 12px;
+    color: @icon_color;
+    font-size: 12px;
+}
+
+#workspaces{
+    background-color: transparent;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+#workspaces button{
+    box-shadow: @shadow 2 2 5 2px;
+    background-color: @background;
+    border-radius: 55px;
+    margin-right: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-weight: bolder;
+    color: @pink;
+}
+
+#workspaces button.active{
+    color: @white;
+}
+
+#workspaces button.active:hover {
+  color: @icon_hover;
+}
+
+#pulseaudio{
+    margin-right: 25px;
+}
+#custom-sysmenu{
+    margin-right: 18px;
+    color: #a87d7f;
+}
+

@@ -1,0 +1,64 @@
+{
+    "layer": "top",
+        "height": 30,
+        "spacing": 10,
+
+        // Module order : Left, Center, Right
+        "modules-left": [ "custom/home","custom/sep", "wlr/workspaces", "tray"],
+        "modules-center": ["clock"],
+        "modules-right": ["network","custom/sep","custom/aur","custom/sep","pulseaudio","custom/sep"],
+
+        // Modules Configuration
+        "custom/home": {
+            "format": "",
+            "on-click": "exec rofi -show run",
+            "tooltip": false
+        },
+        "wlr/workspaces": {
+            "format": "{name}",
+            "on-click": "activate",
+            "on-scroll-up": "hyprctl dispatch workspace e+1",
+            "on-scroll-down": "hyprctl dispatch workspace e-1"
+        },
+        "pulseaudio": {
+            "format": "{volume}% {icon}",
+            "format-bluetooth": "{volume}% {icon}",
+            "format-muted": "",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": ["", ""]
+            },
+            "scroll-step": 5,
+            "on-click": "pavucontrol",
+            "ignored-sinks": ["Easy Effects Sink"]
+        },
+        "network": {
+            "interval": 1,
+            "tooltip-format": "{essid}({signalStrength}%) - {frequency}MHz\n{ifname} - {ipaddr}\n{bandwidthUpBytes}  - {bandwidthDownBytes} ",
+            "format": "{icon}{essid}",
+            "format-wifi": "{bandwidthTotalBytes}⠀ ",
+            "format-ethernet": "⠀{ipaddr}/{cidr}",
+            "format-disconnected": "⠀N/A",
+        },
+        "clock": {
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+            "format-alt": "{:%Y-%m-%d}",
+            "format": "{:%I:%M %p}"
+        },
+        "tray": {
+            // "icon-size": 21,
+            "spacing": 10
+        },
+        "custom/aur": {
+            "tooltip": false,
+            "format": "⠀{}",
+            "interval": 3600,
+            "exec": "paru -Qua | wc -l",
+            "on-click": "paru -Qua | while read OUTPUT; do notify-send \"Updates\" \"$OUTPUT\"; done",
+        }
+}

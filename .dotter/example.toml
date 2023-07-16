@@ -176,6 +176,12 @@ depends = ["colorscheme"]
 [mako.variables]
 noti_manager = "mako"
 
+# Credits to @SimplyVoid on GitHub for the base Waybar config
+[waybar]
+depends = ["colorscheme"]
+[waybar.files]
+"waybar/" = "~/.config/waybar"
+
 # -----------------------------------------------------------------------------------------
 
 #  __  __ _____  _____  _____ 
