@@ -18,6 +18,7 @@ WALLPAPER=$(/bin/cat $DOTTER_CONF | tomlq ."$THEME".variables | sed -nE 's/"defa
 BASE=$(echo $HOME | sed "s/\//\\//g")
 WALLPAPER_FILE=$(echo $WALLPAPER | sed -E "s;~;$BASE;")
 swww img "$WALLPAPER_FILE" -t center --transition-fps 165
+killall {{ noti_manager }}
 {{ #if dotter.packages.waybar }}
 killall waybar
 waybar &
