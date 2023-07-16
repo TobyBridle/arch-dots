@@ -126,16 +126,17 @@ convert_recording() {
             video_file="$tmp_video_file"
             if [ "$(du -m "$tmp_video_file" | cut -f1)" -gt 25 ]; then
                 video_file="/tmp/recording-compressed.mp4"
+                test -f "$video_file" && rm "$video_file"
                 compress_to_25mb "/tmp/recording-compressed.mp4"
                 wait
             fi
-            base="https://discord.com/api/v9"
-            server_choice=$(curl -s -H "Authorization: $token" "${base}/users/@me/guilds" | jq '.[] | "\(.id) \(.name)"' | awk -F'"' '{print $2}' | awk -F " " '{$1=""; print NR, $0 }' | launcher)
-            [ -z "$server_choice" ] && exit 1
+            base="https://discord.com/api/v10"
+            server_choice=$(curl -s -H "Authorization: $token" "${base}/users/@me/guilds" | tr "{|}" "\n" |
+                sed -nE "s@\"id\":\"([0-9]*)\",.*\"name\":\"([^\"]*)\".*@\1\t\2@p" | nth "\$2")
 
-            notify-send "Choices" "$server_choice"
-            server_name=$(printf "%s" "$server_choice" | cut -d'"' -f 2 | cut -d " " -f1)
-            server_id=$(printf "%s" "$server_choice" | cut -d'"' -f 2 | cut -d " " -f2-)
+            [ -z "$server_choice" ] && exit 1
+            server_name=$(printf "%s" "$server_choice" | cut -f2)
+            server_id=$(printf "%s" "$server_choice" | cut -f1)
 
             channel=$(curl -s -H "Authorization: $token" "${base}/guilds/${server_id}/channels" | tr "{|}" "\n" |
                 sed -nE "s@\"id\":\"([0-9]*)\".*\"type\":0,.*\"name\":\"([^\"]*)\",.*\"position\":([0-9]*).*@\3) \2\t\1@p" | sort -h | cut -f2 -d' ')
