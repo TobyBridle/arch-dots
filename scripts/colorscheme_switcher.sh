@@ -10,14 +10,20 @@ if [ -z "$THEME"]; then
     return
 fi
 
-notify-send "Theme Switcher" "Changing Theme to $THEME"
 /bin/cat <<EOM >$DOTTER_CONF
 $(/bin/cat $DOTTER_CONF | tomlq ".colorscheme.depends=[\"$THEME\"]" | yj -jt)
 EOM
+
+WALLPAPER=$(/bin/cat $DOTTER_CONF | tomlq ."$THEME".variables | sed -nE 's/"default-wallpaper":\s*"(.+)"(,?)/\1/p')
+BASE=$(echo $HOME | sed "s/\//\\//g")
+WALLPAPER_FILE=$(echo $WALLPAPER | sed -E "s;~;$BASE;")
+swww img "$WALLPAPER_FILE" -t center --transition-fps 165
 {{ #if dotter.packages.waybar }}
 killall waybar
 waybar &
 {{ /if }}
 # Not necessary if you have `dotter watch` in the background
 dotter deploy -g $DOTTER_CONF
+
+notify-send "Theme Switcher" "Changing Theme to $THEME"
 notify-send "Dotter" "Deployed Changes"

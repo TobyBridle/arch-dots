@@ -15,6 +15,7 @@ use-wezterm-colorscheme = "false"
 [oxocarbon.variables]
 theme-name = "oxocarbon"
 rofi-wallpaper = "~/dotfiles/wallpapers/images/cat_nobara.jpg"
+default-wallpaper = "~/dotfiles/wallpapers/images/oxocarbon-painting.jpg"
 [oxocarbon.variables.colors16]
 base00 = "161616"
 base01 = "262626"
@@ -42,6 +43,7 @@ if = "(eq dotter.packages.vencord true)"
 [catppuccin.variables]
 theme-name = "catppuccin-mocha"
 rofi-wallpaper = "~/dotfiles/wallpapers/images/night.jpg"
+default-wallpaper = "~/dotfiles/wallpapers/images/mocha-painting.jpg"
 [catppuccin.variables.colors16]
 base00 = "1e1e2e"
 base01 = "181825"
