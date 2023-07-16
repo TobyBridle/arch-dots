@@ -9,5 +9,8 @@ for wallpaper in $WALLPAPERS; do
 done
 
 SELECTION=$(echo -e "$wallpapers" | rofi -dmenu -msg "Select a Wallpaper")
+if [[ -z "$SELECTION" ]]; then
+    exit
+fi
 notify-send "Changing Wallpaper" "Changing Wallpaper to $WALLPAPER_DIR$SELECTION"
 swww img "$WALLPAPER_DIR$SELECTION" -t wipe

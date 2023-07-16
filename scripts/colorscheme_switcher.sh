@@ -5,9 +5,9 @@ DOTTER_CONF="/home/tobybridle/dotfiles/.dotter/global.toml"
 #THEME=$(/bin/cat $DOTTER_CONF | tomlq -c .global.variables.theming | sed -E 's/\{"colorschemes":\W?\[(".+"\W?|".+",\W?)*\]\}/\1/' | tr ',' '\n' | cut -d '"' -f2 | grep "\S" | rofi -dmenu)
 THEME=$(/bin/cat $DOTTER_CONF | tomlq -c .global.variables.theming | sed -E 's/\{"colorschemes":\W?\[(".+"\W?|".+",\W?)*\]\}/\1/' | tr ',' '\n' | cut -d '"' -f2 | rofi -dmenu)
 
-if [ -z "$THEME"]; then
+if [[ -z "$THEME" ]]; then
     notify-send "Theme Switcher" "Aborting. Changes not saved."
-    return
+    exit
 fi
 
 /bin/cat <<EOM >$DOTTER_CONF
