@@ -37,8 +37,7 @@ window#waybar{
 }
 
 #custom-home{
-    /* color: #6a9fb5; */
-    margin: 0px 12px 0px 12px;
+    margin: 0px 12px 0px calc(20px + {{gaps-out}}px);
     color: @icon_color;
     font-size: 12px;
 }
@@ -70,7 +69,7 @@ window#waybar{
 }
 
 #pulseaudio{
-    margin-right: 25px;
+    margin-right: calc(25px + {{gaps-out}}px);
 }
 #custom-sysmenu{
     margin-right: 18px;

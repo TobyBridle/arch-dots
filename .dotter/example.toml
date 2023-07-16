@@ -178,7 +178,7 @@ noti_manager = "mako"
 
 # Credits to @SimplyVoid on GitHub for the base Waybar config
 [waybar]
-depends = ["colorscheme"]
+depends = ["colorscheme", "hyprland"]
 [waybar.files]
 "waybar/" = "~/.config/waybar"
 

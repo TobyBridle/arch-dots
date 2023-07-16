@@ -103,6 +103,8 @@ depends = ["colorscheme"]
 [hyprland]
 [hyprland.files]
 "hyprland/" = "~/.config/hypr/"
+[hyprland.variables]
+gaps-out = 20
 
 [swww]
 [swww.files]
@@ -131,7 +133,7 @@ depends = ["colorscheme"]
 noti_manager = "mako"
 
 [waybar]
-depends = ["colorscheme"]
+depends = ["colorscheme", "hyprland"]
 [waybar.files]
 "waybar/" = "~/.config/waybar"
 
