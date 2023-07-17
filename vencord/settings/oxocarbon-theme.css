@@ -86,7 +86,7 @@ html {
   --chat-input-container-background: #161616;
   --background-modifier-hover: rgba(205, 214, 244, 0.15);
   --background-modifier-selected: rgba(190,149,255, 0.8);
-  --background-modifier-accent: rgba(48, 177, 255, 0.75);
+  --background-modifier-accent: #232221;
   --background-modifier-active: rgba(205, 214, 244, 0.17);
   --info-positive-background: rgba(166, 227, 161, 0.15);
   --info-positive-foreground: #78a9ff;
@@ -122,14 +122,14 @@ html {
   --primary-dark-700: #262626;
   --status-green-560: #78a9ff;
   --white-500: #cdd6f4;
-  --guild-boosting-pink: #f5c2e7;
+  --guild-boosting-pink: #ee5396;
   --premium-perk-yellow: #be95ff;
   --premium-perk-purple: #cba6f7;
   --premium-perk-dark-blue: #5895f8;
   --premium-perk-light-blue: #a1c4fb;
   --premium-perk-blue: #33b1ff;
   --premium-perk-green: #78a9ff;
-  --premium-perk-pink: #f5c2e7;
+  --premium-perk-pink: #ee5396;
   --premium-perk-orange: #be95ff;
   --status-green-400: #78a9ff;
   --button-danger-background: #ee5396;
@@ -283,7 +283,7 @@ html {
 
 .theme-dark svg[class*=tier1BoostPerk-],
 .theme-light svg[class*=tier1BoostPerk-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=tier1CustomEmojiPerk-],
@@ -303,22 +303,22 @@ html {
 
 .theme-dark svg[class*=guildBoostingIcon-],
 .theme-light svg[class*=guildBoostingIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=guildSubscriptionSlotIcon-],
 .theme-light svg[class*=guildSubscriptionSlotIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=guildSubscriberCountIcon-],
 .theme-light svg[class*=guildSubscriberCountIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=gemWithLabel-],
 .theme-light svg[class*=gemWithLabel-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=gemWithoutLabel-],
@@ -328,7 +328,7 @@ html {
 
 .theme-dark svg[class*=memberBadgeIcon-],
 .theme-light svg[class*=memberBadgeIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=stickerIcon-],
@@ -343,7 +343,7 @@ html {
 
 .theme-dark svg[class*=uploadSizeIcon-],
 .theme-light svg[class*=uploadSizeIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=threadIcon-],
@@ -353,7 +353,7 @@ html {
 
 .theme-dark svg[class*=premiumIcon-],
 .theme-light svg[class*=premiumIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=gameIcon-],
@@ -363,17 +363,17 @@ html {
 
 .theme-dark svg[class*=tierMarkerLabelPlusIcon-],
 .theme-light svg[class*=tierMarkerLabelPlusIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=currentTierIcon-],
 .theme-light svg[class*=currentTierIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=tier3Icon-],
 .theme-light svg[class*=tier3Icon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 .theme-dark svg[class*=searchIcon-],
@@ -383,7 +383,7 @@ html {
 
 .theme-dark svg[class*=upsellIcon-],
 .theme-light svg[class*=upsellIcon-] {
-  color: #f5c2e7 !important;
+  color: #ee5396 !important;
 }
 
 [class*=lookFilled-][class*=colorBrand-], [class*=lookFilled-][class*=colorBrandNew-], [class*=lookFilled-][class*=colorLink-], [class*=lookFilled-][class*=colorYellow-], [class*=lookFilled-][class*=colorRed-], [class*=lookFilled-][class*=colorGreen-] {
@@ -483,7 +483,7 @@ div[role=radio][class*=selected][class*=allow] {
 }
 
 div[class^=sidebarRegion-] div[class^=serverBoostTabItem-] svg[class^=icon-] {
-  fill: #f5c2e7 !important;
+  fill: #ee5396 !important;
 }
 div[class^=sidebarRegion-] div[class^=serverBoostTabItem-][class*=selected-] {
   background-color: #33b1ff !important;
@@ -493,7 +493,7 @@ div[class^=sidebarRegion-] div[class^=serverBoostTabItem-][class*=selected-] svg
   fill: #262626 !important;
 }
 div[class^=sidebarRegion-] div[class^=premiumTab-] > div > svg > path {
-  fill: #f5c2e7;
+  fill: #ee5396;
 }
 div[class^=sidebarRegion-] div[class^=premiumTab-] > div[class*=selected] {
   color: #262626;
@@ -538,7 +538,7 @@ div[class^=contentRegion-] #keybinds-tab span[class*=key] g {
   fill: #262626;
 }
 div[class^=contentRegion-] #nitro-server-boost-tab circle[class^=circleProgress-] {
-  color: #f5c2e7;
+  color: #ee5396;
 }
 div[class^=contentRegion-] #nitro-server-boost-tab div[class*=gemIndicatorContainer-] {
   background-color: #161616;
@@ -677,7 +677,7 @@ div[class^=contentRegion-] div[class^=control] svg[class^=slider-] > svg > path 
 div[class^=contentRegion-] #guild_premium-tab [class*=tierAccomplished-],
 div[class^=contentRegion-] #guild_premium-tab [class*=tierCurrent-],
 div[class^=contentRegion-] #guild_premium-tab [class*=tierFirst-] {
-  background: #f5c2e7;
+  background: #ee5396;
 }
 div[class^=contentRegion-] #guild_premium-tab [class*=tierInProgress-] {
   background-color: #262626;
@@ -686,7 +686,7 @@ div[class^=contentRegion-] #guild_premium-tab div[class^=progressWithSubscriptio
   color: #262626;
 }
 div[class^=contentRegion-] #guild_premium-tab div[class^=progressWithSubscriptions-] > svg > g > rect:nth-child(2) {
-  color: #f5c2e7;
+  color: #ee5396;
 }
 div[class^=contentRegion-] #guild_premium-tab div[class^=tierHeaderUnlocked-],
 div[class^=contentRegion-] #guild_premium-tab div[class^=tierHeaderLocked-] {
@@ -701,7 +701,7 @@ div[class^=contentRegion-] #guild_premium-tab div[class^=tierHeaderLocked-] div[
 }
 div[class^=contentRegion-] #guild_premium-tab div[class^=tierHeaderUnlocked-] svg[class^=tierIcon-],
 div[class^=contentRegion-] #guild_premium-tab div[class^=tierHeaderLocked-] svg[class^=tierIcon-] {
-  color: #f5c2e7;
+  color: #ee5396;
 }
 div[class^=contentRegion-] #guild_premium-tab div[class^=tierHeaderUnlocked-] svg[class*=tierIconLocked-],
 div[class^=contentRegion-] #guild_premium-tab div[class^=tierHeaderLocked-] svg[class*=tierIconLocked-] {
@@ -787,7 +787,7 @@ div[class^=perksModal] li[class^=perk] {
   background-color: #262626;
 }
 div[class^=perksModal] li[class^=perk] svg {
-  color: #f5c2e7;
+  color: #ee5396;
 }
 div[class^=perksModal] svg[class^=giftIcon] {
   color: #262626;
@@ -806,14 +806,14 @@ div[class^=perksModal] div[class^=tierBody] {
   background-color: #262626 !important;
 }
 div[class^=perksModal] div[class^=tierMarkerAccomplished] {
-  background: #f5c2e7 !important;
+  background: #ee5396 !important;
 }
 div[class^=perksModal] div[class^=tierMarkerInProgress] [class^=currentTierIcon] {
-  color: #f5c2e7;
+  color: #ee5396;
 }
 div[class^=perksModal] div[class^=barForeground],
 div[class^=perksModal] div[class^=tierMarkerAccomplished] {
-  background-color: #f5c2e7;
+  background-color: #ee5396;
 }
 div[class^=perksModal] svg[class^=currentTierIcon] {
   color: #161616;
@@ -1060,7 +1060,7 @@ div[class*=liveSmall-] {
 }
 [class^=chatContent] div[class^=navButtonSuperReactActive-],
 [class^=chatContent] div[class^=navButtonSuperReactActive-]:hover {
-  background: linear-gradient(270deg, #f5c2e7, #b4befe 33.63%, #cba6f7);
+  background: linear-gradient(270deg, #ee5396, #b4befe 33.63%, #cba6f7);
   color: #262626;
 }
 [class^=chatContent] div[class*=betaTag-] {
@@ -1072,7 +1072,7 @@ div[class*=liveSmall-] {
   color: #262626;
 }
 [class^=chatContent] div[class*=colorPremiumGradient-][class*=focused-] {
-  background: linear-gradient(270deg, #f5c2e7, #b4befe 33.63%, #cba6f7);
+  background: linear-gradient(270deg, #ee5396, #b4befe 33.63%, #cba6f7);
   color: #262626 !important;
 }
 [class^=chatContent] div[class*=isBurstReactionPicker] {
@@ -1115,7 +1115,7 @@ div[style*="d1382af8d9e755bc44811b1fd92990a8.svg"] {
 
 main[class^=chatContent] div[id^=message-content-] svg[class^=icon-] > path[d="M4 0L0 4V8L4 12L8 8V4L4 0ZM7 7.59L4 10.59L1 7.59V4.41L4 1.41L7 4.41V7.59Z"],
 main[class^=chatContent] div[id^=message-content-] svg[class^=icon-] > path[d="M2 4.83V7.17L4 9.17L6 7.17V4.83L4 2.83L2 4.83Z"] {
-  color: #f5c2e7;
+  color: #ee5396;
 }
 
 .theme-dark span[class|=spoilerContent],
@@ -1451,7 +1451,7 @@ div[class^=layerContainer] [role=menu] [class*=colorDefault] [class*=check-] {
   background-color: #ee5396;
 }
 div[class^=layerContainer] [role=menu] #guild-header-popout-premium-subscribe div[class^=iconContainer-] > svg {
-  color: #f5c2e7;
+  color: #ee5396;
 }
 div[class^=layerContainer] [role=menu] #user-context-user-volume div[class*=slider-] div[class*=bar-] {
   background-color: #292929;
@@ -1744,8 +1744,8 @@ div[class*=cardWarning-] div[class*=warning-] {
 }
 #emoji-picker-tab-panel div[class^=tooltipContainer-] label[class^=label-][class*=labelChecked-],
 #sticker-picker-tab-panel div[class^=tooltipContainer-] label[class^=label-][class*=labelChecked-] {
-  background: -webkit-gradient(linear, right top, left top, from(#f5c2e7), color-stop(33.33%, #cba6f7), to(#33b1ff));
-  background: linear-gradient(270deg, #f5c2e7, #cba6f7 33.33%, #33b1ff);
+  background: -webkit-gradient(linear, right top, left top, from(#ee5396), color-stop(33.33%, #cba6f7), to(#33b1ff));
+  background: linear-gradient(270deg, #ee5396, #cba6f7 33.33%, #33b1ff);
 }
 
 div[class*=keyboardShortcutsModal-] {
@@ -1849,18 +1849,19 @@ i[class^=statusOnline-] {
   background-color: #42be65 !important;
 }
 
-rect[fill="rgba(35, 165, 90, 1)"] {
-  fill: #78a9ff !important;
+
+rect[fill="#ffd500"] {
+  fill: #ffd500 !important;
 }
 
-rect[fill="#78a9ff"],
+rect[fill="#ffd500"],
 foreignObject[mask="url(#svg-mask-status-idle)"] > div {
-  fill: #78a9ff !important;
-  background-color: #78a9ff !important;
+  fill: #ffd500 !important;
+  background-color: #ffd500 !important;
 }
 
-rect[fill="rgba(240, 178, 50, 1)"] {
-  fill: #78a9ff !important;
+rect[fill="#ffd500"] {
+  fill: #ffd500 !important;
 }
 
 rect[fill="#f23f43"],
@@ -1951,7 +1952,7 @@ div[class*=flowerStarContainer-][class*=iconBackgroundTierOne-] div[class^=child
   fill: #cdd6f4;
 }
 div[class*=flowerStarContainer-][class*=iconBackgroundTierThree-] svg[class*=flowerStar-] * {
-  fill: #f5c2e7;
+  fill: #ee5396;
 }
 div[class*=flowerStarContainer-][class*=iconBackgroundTierThree-] div[class^=childContainer-] svg * {
   fill: #262626;
@@ -2091,7 +2092,7 @@ span[class*=channelMention]:hover,
   color: #ff7eb6;
 }
 .theme-dark code .hljs-regexp {
-  color: #f5c2e7;
+  color: #ee5396;
 }
 .theme-dark code .hljs-string {
   color: #78a9ff;
