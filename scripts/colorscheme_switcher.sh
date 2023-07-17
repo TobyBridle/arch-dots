@@ -23,6 +23,12 @@ killall {{ noti_manager }}
 killall waybar
 waybar &
 {{ /if }}
+
+{{ #if dotter.packages.vencord }}
+PID=$(hyprctl clients -j | jq -r '.[] | select(.class == "discord") | .pid')
+kill -9 $PID
+discord
+{{ /if }}
 # Not necessary if you have `dotter watch` in the background
 dotter deploy -g $DOTTER_CONF
 
