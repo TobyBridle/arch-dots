@@ -1,9 +1,17 @@
 #!/bin/env sh
 
-DOTTER_CONF="/home/tobybridle/dotfiles/.dotter/global.toml"
+DOTTER_CONF="{{dotter.current_dir}}/.dotter/global.toml"
 # If you are that stupid that you have a "" in your colorschemes, uncomment the below
 #THEME=$(/bin/cat $DOTTER_CONF | tomlq -c .global.variables.theming | sed -E 's/\{"colorschemes":\W?\[(".+"\W?|".+",\W?)*\]\}/\1/' | tr ',' '\n' | cut -d '"' -f2 | grep "\S" | rofi -dmenu)
-THEME=$(/bin/cat $DOTTER_CONF | tomlq -c .global.variables.theming | sed -E 's/\{"colorschemes":\W?\[(".+"\W?|".+",\W?)*\]\}/\1/' | tr ',' '\n' | cut -d '"' -f2 | rofi -dmenu)
+# THEME=$(/bin/cat $DOTTER_CONF | tomlq -c .global.variables.theming | sed -E 's/\{"colorschemes":\W?\[(".+"\W?|".+",\W?)*\]\}/\1/' | tr ',' '\n' | cut -d '"' -f2 | rofi -dmenu -theme "~/.config/rofi/styles/theme-selector.rasi")
+THEME=$(/bin/cat $DOTTER_CONF | tomlq -c .global.variables.theming | sed -E 's/\{"colorschemes":\W?\[(".+"\W?|".+",\W?)*\]\}/\1/' | tr ',' '\n' | while read -r theme; do
+    fp=$(/bin/cat $DOTTER_CONF | tomlq ".$(echo $theme | tr -d '\"').variables.default_wallpaper" | tr -d '"' | sed -E "s/^~\/(.*)$/$(echo $HOME | sed -E 's/\//\\//gp')\/\1/g")
+    stripped=$(basename $fp)
+    if [ test -f /tmp/${stripped%.*}.jpg ]; then
+        convert $fp -thumbnail 500x500^ -gravity center -extent 500x500 /tmp/${stripped%.*}.jpg
+    fi
+    printf "%s\x00icon\x1f%s\n" $(echo $theme | tr -d '"') /tmp/${stripped%.*}.jpg
+done | rofi -dmenu -config ~/.config/rofi/styles/theme-selector.rasi)
 
 if [[ -z "$THEME" ]]; then
     notify-send "Theme Switcher" "Aborting. Changes not saved."
@@ -14,7 +22,7 @@ fi
 $(/bin/cat $DOTTER_CONF | tomlq ".colorscheme.depends=[\"$THEME\"]" | yj -jt)
 EOM
 
-WALLPAPER=$(/bin/cat $DOTTER_CONF | tomlq ."$THEME".variables | sed -nE 's/"default-wallpaper":\s*"(.+)"(,?)/\1/p')
+WALLPAPER=$(/bin/cat $DOTTER_CONF | tomlq ."$THEME".variables | sed -nE 's/"default_wallpaper":\s*"(.+)"(,?)/\1/p')
 BASE=$(echo $HOME | sed "s/\//\\//g")
 WALLPAPER_FILE=$(echo $WALLPAPER | sed -E "s;~;$BASE;")
 swww img "$WALLPAPER_FILE" -t center --transition-fps 165

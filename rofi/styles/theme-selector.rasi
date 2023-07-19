@@ -1,0 +1,86 @@
+// Config //
+configuration {
+	modi:                        "drun";
+	show-icons:                  true;
+  drun-display-format:         "{name}";
+	font:                        "RobotoMono Nerd Font Mono 12";
+}
+
+@theme "~/.config/rofi/colors.rasi"
+
+
+// Main //
+window {
+    enabled:                     true;
+    fullscreen:                  false;
+    width:                       700px;
+    height:                      885px;
+    transparency:                "real";
+    cursor:                      "default";
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      0px;
+    border-radius:               32px;
+    border-color:                transparent;
+    background-color:            transparent;
+}
+mainbox {
+    enabled:                     true;
+    children:                    [ "listview" ];
+    background-color:            @background;
+}
+
+
+// Lists //
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       2;
+    spacing:                     20px;
+    padding:                     20px;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     true;
+    fixed-height:                false;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+    text-color:                  @base06;
+}
+
+
+// Elements //
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    spacing:                     50px;
+    padding:                     20px;
+    border-radius:               40px;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @base04;
+}
+element normal.active {
+    background-color:            transparent;
+    text-color:                  @base0C;
+}
+element selected.normal {
+    background-color:            @base00;
+    text-color:                  @base0C;
+}
+element-icon {
+    size:                        300px;
+    cursor:                      inherit;
+    border-radius:               32px;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
