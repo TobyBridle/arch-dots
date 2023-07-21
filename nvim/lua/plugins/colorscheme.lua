@@ -13,26 +13,32 @@ local colorschemes = {
   "sindrets/oxocarbon-lua.nvim",
 }
 {{ /if }}
+{{ #if (eq_string theme-name "gruvbox") }}
+local colorschemes = {
+  "ellisonleao/gruvbox.nvim",
+}
+{{ /if }}
 
 return {
   {{ #if (eq_string theme-name "oxocarbon") }}
   build_colorscheme_spec(colorschemes),
   {{ /if }}
-
-  -- Effortlessly sync the terminal background with Neovim.
-  -- As a side effect, get effortless transparency across color schemes!
-  {
-    "typicode/bg.nvim",
-    lazy = false,
-    cond = function()
-      return os.getenv("NVIM_COLORSYNC") == nil
-    end,
-  },
-
+  {{ #if (eq_string theme-name "gruvbox") }}
+  build_colorscheme_spec(colorschemes),
+  {{ /if }}
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "{{theme-name}}",
     },
+    config = function()
+    {{ #if (eq_string use-wezterm-colorscheme "false") }}
+        vim.cmd [[ colorscheme {{theme-name }}]]
+        local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+        normal["bg"] = "#{{colors16.base00}}"
+        vim.api.nvim_set_hl(0, "normal", normal)
+    {{ /if }}
+
+    end
   },
 }

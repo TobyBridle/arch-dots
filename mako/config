@@ -21,6 +21,10 @@ border-color=#{{colors16.base0D}}
 {{ #if (eq_string theme-name "oxocarbon") }}
 border-color=#{{colors16.base0C}}
 {{ /if }}
+{{ #if (eq_string theme-name "gruvbox") }}
+border-color=#{{colors16.base03}}
+format=<span foreground='#{{colors16.base07}}' size='14000' weight='bold'>%s</span>\n%b
+{{ /if }}
 progress-color=over #{{colors16.base02}}
 
 [urgency=high]
