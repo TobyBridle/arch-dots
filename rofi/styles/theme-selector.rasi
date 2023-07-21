@@ -13,8 +13,7 @@ configuration {
 window {
     enabled:                     true;
     fullscreen:                  false;
-    width:                       700px;
-    height:                      885px;
+    width:                       35%;
     transparency:                "real";
     cursor:                      "default";
     spacing:                     0px;
@@ -34,17 +33,9 @@ mainbox {
 // Lists //
 listview {
     enabled:                     true;
-    columns:                     1;
-    lines:                       2;
-    spacing:                     20px;
-    padding:                     20px;
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    reverse:                     true;
     fixed-height:                false;
-    fixed-columns:               true;
+    layout:                      vertical;
+    dynamic:                     true;
     cursor:                      "default";
     background-color:            transparent;
     text-color:                  @base06;
@@ -54,7 +45,7 @@ listview {
 // Elements //
 element {
     enabled:                     true;
-    orientation:                 vertical;
+    orientation:                 horizontal;
     spacing:                     50px;
     padding:                     20px;
     border-radius:               40px;
