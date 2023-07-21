@@ -1,5 +1,6 @@
 [helpers]
 eq_string = ".dotter/helpers/strings.rhai"
+rgb_f_hx = ".dotter/helpers/hex_csv_rgb.rhai"
 
 [global]
 [global.variables]

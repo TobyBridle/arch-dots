@@ -3,24 +3,28 @@ Revdep config
 */
 
 {{ #if (eq_string theme-name "oxocarbon") }}
-@define-color background #{{colors16.base0A}};
-@define-color foreground #{{colors16.base00}};
-@define-color icon_color #{{colors16.base00}};
-@define-color icon_hover #{{colors16.base03}};
-@define-color black      #{{colors16.base00}};
-@define-color white      #{{colors16.base05}};
-@define-color pink       #{{colors16.base0C}};
-@define-color shadow     rgba(10, 10, 10, 0.1);
+@define-color background      rgba({{ rgb_f_hx colors16.base00}}, 0.7);
+@define-color foreground      #{{colors16.base06}};
+@define-color icon_color      #{{colors16.base0B}};
+@define-color workspace_background #{{colors16.base01}};
+@define-color workspace_active     #{{colors16.base09}};
+@define-color workspace_hover      #{{colors16.base0D}};
+@define-color black           #{{colors16.base00}};
+@define-color pink            #{{colors16.base0C}};
+@define-color blue            #{{colors16.base0E}};
+@define-color shadow          rgba({{ rgb_f_hx colors16.base02 }}, 0.1);
 {{ /if }}
 {{ #if (eq_string theme-name "catppuccin-mocha") }}
-@define-color background #{{colors16.base00}};
-@define-color foreground #{{colors16.base0E}};
-@define-color icon_color #{{colors16.base08}};
-@define-color icon_hover #{{colors16.base03}};
-@define-color black      #{{colors16.base01}};
-@define-color white      #{{colors16.base05}};
-@define-color pink       #{{colors16.base08}};
-@define-color shadow     rgba(242, 205, 205, 0.04);
+@define-color background      rgba({{ rgb_f_hx colors16.base00}}, 0.7);
+@define-color foreground      #{{colors16.base07}};
+@define-color icon_color      #{{colors16.base0B}};
+@define-color workspace_background #{{colors16.base01}};
+@define-color workspace_active     #{{colors16.base0A}};
+@define-color workspace_hover      #{{colors16.base0D}};
+@define-color black           #{{colors16.base00}};
+@define-color pink            rgba( {{ rgb_f_hx colors16.base0E }}, 0.8);
+@define-color blue            #{{colors16.base0E}};
+@define-color shadow          rgba({{ rgb_f_hx colors16.base02 }}, 0.1);
 {{ /if }}
 
 * {
@@ -49,9 +53,13 @@ window#waybar{
     margin-right: 10px;
     margin-left: 25px;
 }
+#clock {
+  font-weight: bold;
+  color: @blue
+}
 #workspaces button{
     box-shadow: @shadow 2 2 5 2px;
-    background-color: @background;
+    background-color: @workspace_background;
     border-radius: 55px;
     margin-right: 10px;
     padding-right: 15px;
@@ -61,11 +69,11 @@ window#waybar{
 }
 
 #workspaces button.active{
-    color: @white;
+    color: @workspace_active;
 }
 
 #workspaces button.active:hover {
-  color: @icon_hover;
+  color: @workspace_hover;
 }
 
 #pulseaudio{
