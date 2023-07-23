@@ -195,6 +195,10 @@ depends = ["colorscheme"]
 [wezterm.files]
 "wezterm/" = "~/.config/wezterm"
 
+[jerry]
+[jerry.files]
+"jerry/" = "~/.config/jerry/"
+
 [rofi]
 depends = ["colorscheme"]
 [rofi.files]
