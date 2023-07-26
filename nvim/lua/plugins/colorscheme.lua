@@ -34,7 +34,7 @@ return {
     config = function()
         vim.cmd [[ colorscheme {{theme-name }}]]
         local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-        normal["bg"] = "#{{colors16.base00}}"
+        normal["bg"] = None
         vim.api.nvim_set_hl(0, "normal", normal)
     end
   },
