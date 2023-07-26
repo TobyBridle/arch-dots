@@ -128,6 +128,8 @@ depends = ["colorscheme"]
 [nvim.files]
 "nvim/" = "~/.config/nvim/"
 
+[emacs]
+
 [hyprland]
 [hyprland.files]
 "hyprland/" = "~/.config/hypr/"
