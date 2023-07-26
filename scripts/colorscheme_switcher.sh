@@ -12,7 +12,7 @@ THEME=$(/bin/cat $DOTTER_CONF | tomlq -c .global.variables.theming | sed -E 's/\
         convert $fp -thumbnail 500x500^ -gravity center -extent 500x500 /tmp/${stripped%.*}.jpg
     fi
     printf "%s\x00icon\x1f%s\n" $(echo $theme | tr -d '"') /tmp/${stripped%.*}.jpg
-done | rofi -dmenu -config ~/.config/rofi/styles/theme-selector.rasi)
+done | rofi -dmenu -theme ~/.config/rofi/styles/theme-selector.rasi)
 
 if [[ -z "$THEME" ]]; then
     notify-send "Theme Switcher" "Aborting. Changes not saved."
