@@ -38,7 +38,7 @@ kill -9 $PID
 discord
 {{ /if }}
 # Not necessary if you have `dotter watch` in the background
-dotter deploy -g $DOTTER_CONF
+dotter deploy -g $DOTTER_CONF --force
 
 notify-send "Theme Switcher" "Changing Theme to $THEME"
 notify-send "Dotter" "Deployed Changes"
