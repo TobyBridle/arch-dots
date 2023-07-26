@@ -103,7 +103,6 @@ if = "(eq dotter.packages.vencord true)"
 [zsh]
 [zsh.files]
 "zsh/zshrc" = "~/.zshrc"
-"zsh/broot" = "~/.config/broot/"
 "zsh/themes" = "~/.config/zsh/themes"
 
 [starship]

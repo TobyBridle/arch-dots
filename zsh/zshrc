@@ -37,7 +37,6 @@ fpath=(
 # User configuration
 alias cat=bat
 
-source /home/tobybridle/.config/broot/launcher/bash/br
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
