@@ -10,7 +10,7 @@ colorschemes = ["oxocarbon", "catppuccin", "gruvbox"]
 [colorscheme]
 depends = ["catppuccin"]
 [colorscheme.variables]
-use-wezterm-colorscheme = "false"
+use-native-colorscheme = "false"
 
 [oxocarbon]
 [oxocarbon.variables]

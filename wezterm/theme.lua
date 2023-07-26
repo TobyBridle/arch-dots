@@ -1,4 +1,4 @@
-{{ #if (eq_string use-wezterm-colorscheme "true") }}
+{{ #if (eq_string use-native-colorscheme "true") }}
 local theme = ({
 	"Oxocarbon Dark", -- [1]
 	"Catppuccin Mocha", -- [2]

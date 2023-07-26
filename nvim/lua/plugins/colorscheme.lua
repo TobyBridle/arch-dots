@@ -32,13 +32,10 @@ return {
       colorscheme = "{{theme-name}}",
     },
     config = function()
-    {{ #if (eq_string use-wezterm-colorscheme "false") }}
         vim.cmd [[ colorscheme {{theme-name }}]]
         local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
         normal["bg"] = "#{{colors16.base00}}"
         vim.api.nvim_set_hl(0, "normal", normal)
-    {{ /if }}
-
     end
   },
 }
