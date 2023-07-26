@@ -39,7 +39,9 @@ Revdep config
 @define-color shadow          rgba({{ rgb_f_hx colors16.base02 }}, 0.1);
 {{ /if }}
 
-* {
+{{ #if (eq_string use-native-colorscheme "true") }}
+
+\* {
     font-family: "JetBrains Mono Nerd Font","FontAwesome";
     font-size: 13px;
     min-height: 0;
@@ -96,3 +98,65 @@ window#waybar{
     color: #a87d7f;
 }
 
+{{ /if }}
+
+{{ #if (eq_string use-native-colorscheme "false") }}
+
+\* {
+    font-family: "JetBrains Mono Nerd Font","FontAwesome";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar{
+    border-top: 10px;
+    border: transparent;
+    background: rgba( 25, 25, 25, 0.3);
+    color: @foreground;
+}
+
+#custom-home{
+    margin: 0px 12px 0px calc(20px + 20px);
+    color: @color1;
+    font-size: 12px;
+}
+
+#workspaces{
+    background-color: transparent;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+#clock {
+  font-weight: bold;
+  color: @color9;
+}
+#workspaces button{
+    box-shadow: none;
+    background-color: @color14;
+    border-radius: 55px;
+    margin-right: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-weight: bolder;
+    color: @color0;
+}
+
+#workspaces button.active{
+    color: @color16;
+}
+
+#workspaces button.active:hover {
+  color: @color15;
+}
+
+#pulseaudio{
+    margin-right: calc(25px + 20px);
+}
+#custom-sysmenu{
+    margin-right: 18px;
+    color: #a87d7f;
+}
+
+{{ /if }}
