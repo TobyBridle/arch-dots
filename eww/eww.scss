@@ -1,0 +1,22 @@
+@use 'css/colors' as c;
+
+* {
+	all: unset;
+}
+
+.bar {
+	background-color: rgba(c.$secondary, 0.4);
+}
+
+.workspace-entry {
+	padding: 5px;
+	margin: 5px;
+	border-radius: 50%;
+	background-color: c.$accent;
+	color: rgba(c.$text, 0.3);
+}
+
+.workspace-entry.current {
+	background-color: c.$primary;
+	color: c.$text;
+}

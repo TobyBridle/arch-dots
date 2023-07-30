@@ -1,0 +1,10 @@
+@use "{{dotter.current_dir}}/../.cache/wal/colors.scss" as colors;
+
+$primary: colors.$color3;
+$secondary: colors.$color2;
+$accent: colors.$color5;
+$good: #26a65b;
+$bad: #cc4f4f;
+$text: #d2d2d2;
+$bluetooth: #0a3b8c;
+$warning: #d3980f;

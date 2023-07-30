@@ -11,6 +11,7 @@ colorschemes = ["oxocarbon", "catppuccin", "gruvbox"]
 depends = ["catppuccin"]
 [colorscheme.variables]
 use-native-colorscheme = "false"
+use-eww-bar = "false"
 
 [oxocarbon]
 [oxocarbon.variables]
@@ -166,6 +167,10 @@ noti_manager = "mako"
 depends = ["colorscheme", "hyprland"]
 [waybar.files]
 "waybar/" = "~/.config/waybar"
+
+[eww]
+[eww.files]
+"eww/" = "~/.config/eww/"
 
 [dunst]
 [dunst.files]

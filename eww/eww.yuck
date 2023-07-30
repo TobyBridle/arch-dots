@@ -1,0 +1,15 @@
+(include "./modules/workspaces.yuck")
+
+(defwindow bar
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :width "100%"
+                               :height "40px"
+                               :anchor "top center")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+					 :exclusive true
+           :windowtype "dock"
+           :wm-ignore false
+					 :class "bar"
+  (workspaces))
