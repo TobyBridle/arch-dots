@@ -2,6 +2,8 @@ autoload -U +X compinit && compinit
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/var/lib/flatpak/exports/bin/:/$HOME/.local/bin/:$PATH
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
 
 # History
 HISTSIZE=10000
