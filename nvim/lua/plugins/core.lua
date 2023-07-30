@@ -2,6 +2,7 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
+			colorscheme = "{{ theme-name }}",
 			defaults = {
 				keymaps = false,
 			},

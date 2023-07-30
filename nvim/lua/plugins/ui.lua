@@ -1,7 +1,9 @@
 return {
 	-- COLORSCHEMES
 	{
+		{{ #if (eq_string theme-name "oxocarbon") }}
 		"nyoom-engineering/oxocarbon.nvim",
+		{{ /if }}
 	},
 
 	-- ALPHA
