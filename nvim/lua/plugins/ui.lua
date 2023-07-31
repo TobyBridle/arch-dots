@@ -4,6 +4,9 @@ return {
 		{{ #if (eq_string theme-name "oxocarbon") }}
 		"nyoom-engineering/oxocarbon.nvim",
 		{{ /if }}
+		{{ #if (eq_string theme-name "gruvbox") }}
+		"ellisonleao/gruvbox.nvim"
+		{{ /if }}
 	},
 
 	-- ALPHA
