@@ -1,162 +1,27 @@
-/*
-Revdep config
-*/
-
-{{ #if (eq_string theme-name "oxocarbon") }}
-@define-color background      rgba({{ rgb_f_hx colors16.base00}}, 0.7);
-@define-color foreground      #{{colors16.base06}};
-@define-color icon_color      #{{colors16.base0B}};
-@define-color workspace_background #{{colors16.base01}};
-@define-color workspace_active     #{{colors16.base09}};
-@define-color workspace_hover      #{{colors16.base0D}};
-@define-color black           #{{colors16.base00}};
-@define-color pink            #{{colors16.base0C}};
-@define-color blue            #{{colors16.base0E}};
-@define-color shadow          rgba({{ rgb_f_hx colors16.base02 }}, 0.1);
-{{ /if }}
-{{ #if (eq_string theme-name "catppuccin-mocha") }}
-@define-color background      rgba({{ rgb_f_hx colors16.base00}}, 0.7);
-@define-color foreground      #{{colors16.base07}};
-@define-color icon_color      #{{colors16.base0B}};
-@define-color workspace_background #{{colors16.base01}};
-@define-color workspace_active     #{{colors16.base0A}};
-@define-color workspace_hover      #{{colors16.base0D}};
-@define-color black           #{{colors16.base00}};
-@define-color pink            rgba( {{ rgb_f_hx colors16.base0E }}, 0.8);
-@define-color blue            #{{colors16.base0E}};
-@define-color shadow          rgba({{ rgb_f_hx colors16.base02 }}, 0.1);
-{{ /if }}
-{{ #if (eq_string theme-name "gruvbox") }}
-@define-color background      rgba({{ rgb_f_hx colors16.base00}}, 0.7);
-@define-color foreground      #{{colors16.base06}};
-@define-color icon_color      #{{colors16.base0B}};
-@define-color workspace_background #{{colors16.base01}};
-@define-color workspace_active     #{{colors16.base09}};
-@define-color workspace_hover      #{{colors16.base0D}};
-@define-color black           #{{colors16.base00}};
-@define-color pink            #{{colors16.base04}};
-@define-color blue            #{{colors16.base0C}};
-@define-color shadow          rgba({{ rgb_f_hx colors16.base02 }}, 0.1);
-{{ /if }}
-
 {{ #if (eq_string use-native-colorscheme "true") }}
-
-\* {
-    font-family: "JetBrains Mono Nerd Font","FontAwesome";
-    font-size: 13px;
-    min-height: 0;
-}
-
-window#waybar{
-    border-top: 10px;
-    border: transparent;
-    background: @background;
-    color: @foreground;
-}
-
-#custom-home{
-    margin: 0px 12px 0px calc(20px + {{gaps-out}}px);
-    color: @icon_color;
-    font-size: 12px;
-}
-
-#workspaces{
-    background-color: transparent;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 25px;
-}
-#clock {
-  font-weight: bold;
-  color: @blue
-}
-#workspaces button{
-    box-shadow: @shadow 2 2 5 2px;
-    background-color: @workspace_background;
-    border-radius: 55px;
-    margin-right: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
-    font-weight: bolder;
-    color: @pink;
-}
-
-#workspaces button.active{
-    color: @workspace_active;
-}
-
-#workspaces button.active:hover {
-  color: @workspace_hover;
-}
-
-#pulseaudio{
-    margin-right: calc(25px + {{gaps-out}}px);
-}
-#custom-sysmenu{
-    margin-right: 18px;
-    color: #a87d7f;
-}
-
+{{ #if (arr_inc overrides "waybar") }}
+/* Scuffed way getting the home directory
+* Assumes dotter current dir is within the home directory.
+*/
+@import "{{dotter.current_dir}}/../.cache/wal/colors-waybar.css";
+@import "./dynamic_colorscheme.css";
+{{ /if }}
+{{ #unless (arr_inc overrides "waybar") }}
+@import "themes/{{ theme-name }}.css";
+@import "native_colorscheme.css";
+{{ /unless }}
 {{ /if }}
 
 {{ #if (eq_string use-native-colorscheme "false") }}
-
-\* {
-    font-family: "JetBrains Mono Nerd Font","FontAwesome";
-    font-size: 13px;
-    min-height: 0;
-}
-
-window#waybar{
-    border-top: 10px;
-    border: transparent;
-    background: rgba( 25, 25, 25, 0.3);
-    color: @foreground;
-}
-
-#custom-home{
-    margin: 0px 12px 0px calc(20px + 20px);
-    color: @color1;
-    font-size: 12px;
-}
-
-#workspaces{
-    background-color: transparent;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 25px;
-}
-#clock {
-  font-weight: bold;
-  color: @color9;
-}
-#workspaces button{
-    box-shadow: none;
-    background-color: @color14;
-    border-radius: 55px;
-    margin-right: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
-    font-weight: bolder;
-    color: @color0;
-}
-
-#workspaces button.active{
-    color: @color16;
-}
-
-#workspaces button.active:hover {
-  color: @color15;
-}
-
-#pulseaudio{
-    margin-right: calc(25px + 20px);
-}
-#custom-sysmenu{
-    margin-right: 18px;
-    color: #a87d7f;
-}
-
+{{ #if (arr_inc overrides "waybar") }}
+@import "themes/{{ theme-name }}.css";
+@import "native_colorscheme.css";
+{{ /if }}
+{{ #unless (arr_inc overrides "waybar") }}
+/* Scuffed way getting the home directory
+* Assumes dotter current dir is within the home directory.
+*/
+@import "{{dotter.current_dir}}/../.cache/wal/colors-waybar.css";
+@import "./dynamic_colorscheme.css";
+{{ /unless }}
 {{ /if }}

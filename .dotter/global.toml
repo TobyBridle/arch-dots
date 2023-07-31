@@ -13,6 +13,7 @@ depends = ["catppuccin"]
 [colorscheme.variables]
 use-native-colorscheme = "false"
 use-eww-bar = "false"
+overrides = []
 
 [oxocarbon]
 [oxocarbon.variables]

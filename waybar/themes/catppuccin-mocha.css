@@ -1,0 +1,10 @@
+@define-color background      rgba({{ rgb_f_hx colors16.base00}}, 0.7);
+@define-color foreground      #{{colors16.base07}};
+@define-color icon_color      #{{colors16.base0B}};
+@define-color workspace_background #{{colors16.base01}};
+@define-color workspace_active     #{{colors16.base0A}};
+@define-color workspace_hover      #{{colors16.base0D}};
+@define-color black           #{{colors16.base00}};
+@define-color pink            rgba( {{ rgb_f_hx colors16.base0E }}, 0.8);
+@define-color blue            #{{colors16.base0E}};
+@define-color shadow          rgba({{ rgb_f_hx colors16.base02 }}, 0.1);
