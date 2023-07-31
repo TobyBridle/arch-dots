@@ -8,6 +8,16 @@ return {
 		"ellisonleao/gruvbox.nvim"
 		{{ /if }}
 	},
+	
+	-- Transparency
+	{
+		"xiyaowong/transparent.nvim",
+		config = function ()
+			require("transparent").setup{}
+			vim.cmd [[ TransparentEnable ]]
+		end,
+		priority = 1000
+	},
 
 	-- ALPHA
 	{
