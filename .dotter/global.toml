@@ -2,6 +2,7 @@
 eq_string = ".dotter/helpers/strings.rhai"
 arr_inc = ".dotter/helpers/array_includes.rhai"
 rgb_f_hx = ".dotter/helpers/hex_csv_rgb.rhai"
+hyprland_border_color = ".dotter/helpers/hyprland_border_color.rhai"
 
 [global]
 [global.variables]
