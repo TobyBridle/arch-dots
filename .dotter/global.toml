@@ -139,6 +139,8 @@ depends = ["colorscheme"]
 "hyprland/" = "~/.config/hypr/"
 [hyprland.variables]
 gaps-out = 20
+border-color-active = "6d6956ff"
+border-color-inactive = "6d695620"
 
 [swww]
 [swww.files]
