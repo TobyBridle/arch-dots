@@ -177,12 +177,6 @@ depends = ["colorscheme", "hyprland"]
 [eww.files]
 "eww/" = "~/.config/eww/"
 
-[dunst]
-[dunst.files]
-"dunst/" = "~/.config/dunst/"
-[dunst.variables]
-noti_manager = "dunst"
-
 [imwheel]
 [imwheel.files]
 "imwheel/imwheelrc" = "~/.imwheelrc"
