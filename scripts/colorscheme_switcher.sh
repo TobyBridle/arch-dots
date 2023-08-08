@@ -26,7 +26,7 @@ EOM
 
 WALLPAPER=$(/bin/cat $DOTTER_CONF | $TOMLQ ."$THEME".variables | sed -nE 's/"default_wallpaper":\s*"(.+)"(,?)/\1/p')
 WALLPAPER_FILE=$(echo $WALLPAPER | sed -E "s;~;$BASE;")
-swww img "$WALLPAPER_FILE" -t center --transition-fps 165
+~/.config/scripts/set_swww_wallpaper.sh "$WALLPAPER_FILE"
 killall {{ noti_manager }}
 {{ noti_manager }} &
 {{ #if dotter.packages.waybar }}
