@@ -12,7 +12,7 @@ reset_waybar() {
 set_hyprland_border() {
     TOMLQ="{{dotter.current_dir}}/bin/tomlq"
     CONFIG_PATH="{{dotter.current_dir}}/.dotter/global.toml"
-    WAL_COLORS=$(cat "$HOME/.cache/wal/colors.json" | jq -r '.colors.color2' | cut -c 2-)
+    WAL_COLORS=$(cat "$HOME/.cache/wal/colors.json" | jq -r '.colors.color14' | cut -c 2-)
     # Set the hyprland vars
 
     /bin/cat <<EOM >$CONFIG_PATH
