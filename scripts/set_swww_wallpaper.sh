@@ -30,7 +30,7 @@ if [ -z "$1" ]; then
         wallpapers+="$(cut -c $DIR_LEN- <<<"$wallpaper")\n"
     done
 
-    SELECTION=$(echo -e "$wallpapers" | rofi -dmenu -msg "Select a Wallpaper")
+    SELECTION=$(echo -e "$wallpapers" | rofi -dmenu -matching fuzzy -msg "Select a Wallpaper")
     if [[ -z "$SELECTION" ]]; then
         exit
     fi
