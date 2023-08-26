@@ -209,6 +209,10 @@ depends = ["colorscheme"]
 [rofi.files]
 "rofi/" = "~/.config/rofi"
 
+[mpv]
+[mpv.files]
+"mpv/" = "~/.config/mpv"
+
 [fonts]
 [fonts.files]
 "fonts/config" = "~/.config/fontconfig/conf.d/"
