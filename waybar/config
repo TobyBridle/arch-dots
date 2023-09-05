@@ -12,7 +12,7 @@
 				{{ #unless dotter.packages.mpd }}
         "modules-center": ["clock"],
         "modules-right": ["network","custom/sep","custom/aur","custom/sep","pulseaudio","custom/sep"],
-				{{ /if }}
+				{{ /unless }}
 
         // Modules Configuration
         "custom/home": {
