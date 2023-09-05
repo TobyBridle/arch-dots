@@ -5,8 +5,14 @@
 
         // Module order : Left, Center, Right
         "modules-left": [ "custom/home","custom/sep", "wlr/workspaces", "tray"],
+				{{ #if dotter.packages.mpd }}
+        "modules-center": ["custom/waybar-mpris"],
+        "modules-right": ["clock", "network","custom/sep","custom/aur","custom/sep","pulseaudio","custom/sep"],
+				{{ /if }}
+				{{ #unless dotter.packages.mpd }}
         "modules-center": ["clock"],
         "modules-right": ["network","custom/sep","custom/aur","custom/sep","pulseaudio","custom/sep"],
+				{{ /if }}
 
         // Modules Configuration
         "custom/home": {
@@ -45,7 +51,13 @@
             "format-ethernet": "⠀{ipaddr}/{cidr}",
             "format-disconnected": "⠀N/A",
         },
-        "clock": {
+        "custom/waybar-mpris": {
+							"return-type": "json",
+							"exec": "waybar-mpris --position --autofocus",
+							"on-click": "waybar-mpris --send toggle",
+							"escape": true,
+				},
+				"clock": {
             "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
             "format-alt": "{:%Y-%m-%d}",
             "format": "{:%I:%M %p}"
