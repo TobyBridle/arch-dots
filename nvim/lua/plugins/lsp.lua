@@ -1,5 +1,16 @@
 return {
 
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			setup = {
+				-- Disable formatting for all LSPs
+				require("lazyvim.utils").on_attach(function(client)
+					client.server_capabilities.documentFormattingProvider = false
+				end)
+			}
+		}
+	}
 	-- LSPSAGA
 	{
 		"glepnir/lspsaga.nvim",
