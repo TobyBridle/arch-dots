@@ -7,3 +7,6 @@
 	directory = /opt/flutter
 [init]
 	defaultBranch = main
+	templateDir = dotfiles/git/git_template
+[thisisfuckingbullshit]
+	key = test

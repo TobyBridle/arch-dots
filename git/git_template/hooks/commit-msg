@@ -15,6 +15,7 @@ type_map = {
     "feat": "🎉",
     "fix": "🐛",
     "docs": "📝",
+    "merge": "🔗",
     "style": "🎨",
     "refactor": "♻️ ",
     "perf": "⚡️",
