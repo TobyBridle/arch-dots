@@ -26,7 +26,8 @@ window#waybar{
 }
 #clock {
   font-weight: bold;
-  color: @blue
+  color: @blue;
+	margin-right: 20px;
 }
 #workspaces button{
     box-shadow: @shadow 2 2 5 2px;
