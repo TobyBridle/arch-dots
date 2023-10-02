@@ -93,7 +93,13 @@
             "enabled": true
         },
         "CustomRPC": {
-            "enabled": false
+            "enabled": false,
+            "type": 5,
+            "details": "I am",
+            "state": "so cool",
+            "appName": "the Game of Life",
+            "appID": "1084791136981352558",
+            "endTime": 12830912
         },
         "DisableDMCallIdle": {
             "enabled": false
@@ -121,7 +127,8 @@
             "enabled": false
         },
         "Fart2": {
-            "enabled": false
+            "enabled": true,
+            "volume": 1
         },
         "FavoriteEmojiFirst": {
             "enabled": false
@@ -181,7 +188,7 @@
             "ignoreSelf": false
         },
         "MessageTags": {
-            "enabled": false
+            "enabled": true
         },
         "MoreCommands": {
             "enabled": false
@@ -190,7 +197,39 @@
             "enabled": false
         },
         "MoreUserTags": {
-            "enabled": false
+            "enabled": true,
+            "tagSettings": {
+                "WEBHOOK": {
+                    "text": "Webhook",
+                    "showInChat": true,
+                    "showInNotChat": true
+                },
+                "OWNER": {
+                    "text": "Owner",
+                    "showInChat": true,
+                    "showInNotChat": true
+                },
+                "ADMINISTRATOR": {
+                    "text": "Admin",
+                    "showInChat": true,
+                    "showInNotChat": true
+                },
+                "MODERATOR_STAFF": {
+                    "text": "Staff",
+                    "showInChat": true,
+                    "showInNotChat": true
+                },
+                "MODERATOR": {
+                    "text": "Mod",
+                    "showInChat": true,
+                    "showInNotChat": true
+                },
+                "VOICE_MODERATOR": {
+                    "text": "VC Mod",
+                    "showInChat": true,
+                    "showInNotChat": true
+                }
+            }
         },
         "Moyai": {
             "enabled": false
@@ -244,7 +283,7 @@
             "enabled": false
         },
         "petpet": {
-            "enabled": false
+            "enabled": true
         },
         "PinDMs": {
             "enabled": false
@@ -423,6 +462,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1689202221504
+        "settingsSyncVersion": 1693844861610
     }
 }
